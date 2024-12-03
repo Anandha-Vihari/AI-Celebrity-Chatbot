@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="icon" href="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" type="image/x-icon">
+    <title>Spheron's AI Celebrity Chat</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-container">
+        <div class="app-logo">
+          <span class="app-title">Spheron's AI Celebrity Chat</span>
+        </div>
+        <nav class="desktop-nav hidden md:block">
+          <ul>
+            <li><a href="/" class="desktop-nav-link active">Home</a></li>
+            <li><a href="#actors" class="desktop-nav-link">Actors</a></li>
+            <li><a href="#tech" class="desktop-nav-link">Tech</a></li>
+            <li><a href="#anime" class="desktop-nav-link">Anime</a></li>
+            <li><a href="#crypto" class="desktop-nav-link">Crypto</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu md:hidden">
+          <button id="mobile-menu-button" class="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div id="mobile-menu" class="mobile-menu-panel">
+            <a href="/" class="mobile-menu-link">Home</a>
+            <a href="#actors" class="mobile-menu-link">Actors</a>
+            <a href="#tech" class="mobile-menu-link">Tech</a>
+            <a href="#anime" class="mobile-menu-link">Anime</a>
+            <a href="#crypto" class="mobile-menu-link">Crypto</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="hero-section">
+        <h1>Chat with AI Celebrities</h1>
+        <p>Experience unique conversations with your favorite personalities</p>
+      </div>
+      <div class="celebrity-grid">
+        {% for celebrity in [
+          ('Morgan Freeman', 'The iconic voice of wisdom and narration'),
+          ('Ellen DeGeneres', 'Bringing laughter and wit to every conversation'),
+          ('Robert Downey Jr.', 'Sharp humor with a touch of Tony Stark'),
+          ('Oprah Winfrey', 'Inspiring conversations with the queen of media'),
+          ('Elon Musk', 'Visionary tech entrepreneur and space enthusiast'),
+          ('Naruto Uzumaki', 'Determined ninja who never gives up'),
+          ('Goku', 'Legendary Saiyan warrior and Earth\'s protector'),
+          ('Barack Obama', '44th President with inspiring leadership'),
+          ('Vitalik Buterin', 'Ethereum founder and blockchain visionary'),
+          ('Jeff Bezos', 'Amazon founder and e-commerce pioneer'),
+          ('Satoshi Nakamoto', 'Mysterious Bitcoin creator'),
+          ('Bill Gates', 'Microsoft co-founder and philanthropist'),
+          ('Mark Zuckerberg', 'Meta CEO and social media innovator'),
+          ('Cristiano Ronaldo', 'Legendary footballer and sports icon'),
+          ('Taylor Swift', 'Pop superstar and music industry leader')
+        ] %}
+        <div class="celebrity-card">
+          <img src="{{ CELEBRITY_IMAGES.get(celebrity[0], 'https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp') }}" 
+               alt="{{ celebrity[0] }}"
+               onerror="this.classList.add('error')">
+          <h3>{{ celebrity[0] }}</h3>
+          <p>{{ celebrity[1] }}</p>
+          <button class="chat-button">Chat Now</button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="/static/js/home.js"></script>
+  </body>
+</html>

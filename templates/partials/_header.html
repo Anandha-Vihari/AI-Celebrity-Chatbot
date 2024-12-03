@@ -1,0 +1,15 @@
+<header class="app-header">
+  <div class="app-container">
+    <div class="app-logo">
+      <img src="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" class="app-logo-image">
+      <span class="app-title">App Name</span>
+    </div>
+    <div class="hidden md:block">
+      {% include 'partials/_desktop_header.html' %}
+    </div>
+    <div class="md:hidden">
+      {% include 'partials/_mobile_header.html' %}
+    </div>
+  </div>
+  <script src="/static/js/header.js"></script>
+</header>
