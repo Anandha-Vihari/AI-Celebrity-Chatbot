@@ -58,21 +58,58 @@ source venv/bin/activate  # Unix/macOS
 ```bash
 pip install -r requirements.txt
 ```
+
+### Ollama Setup
+
+#### Installing Ollama
+```bash
+# Windows (WSL2 required)
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Verify Installation
+ollama --version
+```
+
+### Pull required models
+```bash
+ollama pull mistral    # Balanced performance (default)
+ollama pull llama3     # Creative responses
+ollama pull gemma      # Efficient processing  
+ollama pull starcoder  # Technical expertise
+
+#### Verify models are installed
+ollama list
+```
+
 ## 🗂 Project Structure
 ```
 AI-Celebrity-Chatbot/
-├── backend/
-│   ├── main.py
-│   ├── models/
-│   └── controllers/
-├── frontend/
-│   ├── index.html
-│   └── assets/
-├── models/
-│   └── celebrity_personas/
-├── tests/
-│   ├── test_backend.py
-│   └── test_frontend.py
+├── abilities/
+│   ├── llm.py
+│   ├── migrations.py
+│   ├── __init__.py
+├── instance/
+│   └── database.db
+├── migrations/
+│   └── database.sql
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   └── js/
+│       ├── chat.js
+│       ├── header.js
+│       └── home.js
+├── templates/
+│   ├── chat.html
+│   ├── home.html
+│   └── partials/
+│       ├── _desktop_header.html
+│       ├── _header.html
+│       └── _mobile_header.html
+├── app_init.py
+├── main.py
+├── models.py
+├── routes.py
 └── requirements.txt
 ```
 
