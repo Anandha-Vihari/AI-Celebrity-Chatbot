@@ -221,12 +221,15 @@ sphnctl deployment get --lid <lease-id>
 ```
 Replace the `<lease-id>` with your actual Lease ID, you obtained after deployment.
 
+You will get a url that is your deployment link
 
-
-
-
-
-
+## ✍ Acknowledgments
+This project couldn't be there if they didn't be there!
+- [Spheron](https://spheron.network/)
+- [Ollama](https://ollama.com/library)
+- [Llama3](https://ollama.com/library/llama3)
+- [Gemma](https://ollama.com/library/gemma)
+- [Mistral](https://ollama.com/library/mistral)
 
 ---
 
