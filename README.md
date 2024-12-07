@@ -119,6 +119,115 @@ AI-Celebrity-Chatbot/
 python main.py
 ```
 
+# 🚀 Deploy on Spheron
+
+Here I will help you to deploy Server and Ollama on Spheron using Spheron Protocol CLI 💪
+
+## Prerequisites
+
+You should have this before you start deploying on Spheron:
+- `curl`
+
+## 1. Install Spheron Protocol CLI (Linux, MacOS)
+
+```bash
+curl -sL1 https://sphnctl.sh | bash
+```
+
+After installation, verify the installation by using a simple command to check the Spheron version:
+
+```bash
+sphnctl version # or `sphnctl -h` for help
+```
+
+## 2. Creating a Wallet
+
+```bash
+sphnctl wallet create --name <your-wallet-name>
+```
+
+Replace `<your-wallet-name>` with your desired wallet name. Here is an example of how the result will look:
+
+```
+Created account xxx:
+ path: root/.spheron/<your-wallet-name>.json
+ address: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ secret: xxxxxxxxxx
+ mnemonic: xxxxxx xxxxx xxxx xxxxx xxxxx xxxx xxxxx xxxxx
+```
+
+**Important:** Make sure to securely save the mnemonic phrase and key secret provided.
+
+## 3. Get Test Tokens from the Faucet
+
+You will need some token to deploy on Spheron. Visit the Spheron Faucet to obtain test tokens for deployment. 
+
+After receiving the tokens, you can check your wallet balance with:
+
+```bash
+sphnctl wallet balance --token USDT
+```
+
+Here is an example of how the result will look:
+
+```
+Current ETH balance: 0.00011 (used for gas fee)
+Total USDT balance: 35 (used to buy the lease)
+ 
+Deposited USDT balance
+ unlocked: 100.0000
+ locked: 0.0000
+```
+
+## 4. Deposit Tokens to Your Escrow Balance
+
+Deposit USDT to your escrow wallet for deployment:
+
+```bash
+sphnctl payment deposit --amount 20 --token USDT
+```
+
+```bash
+sphnctl wallet balance --token USDT
+```
+### 5. Create your Deployment
+
+deploy the `deploy.yml` configuration file on Spheron:
+```bash
+sphnctl deployment create deploy.yml
+```
+Here is an example of how the result will look:
+```bash
+Validating SDL configuration.
+SDL validated.
+Sending configuration for provider matching.
+Create deployment tx: [Tx Hash]
+Waiting for providers to bid on the deployment order...
+Bid found.
+Order matched successfully.
+Deployment created using wallet xxxxxxxxxxxxxxxxxxxxxxx
+ lid: xxxx
+ provider: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ agreed price: 0.30
+Sending the manifest for deployment…
+Deployment manifest sent, waiting for acknowledgment.
+Deployment is finished.
+```
+'lid' is used access the deployment,lid also means lease id
+### 6. Access Your Deployment
+To get details about your deployment, including the URL, ports, and status, run:
+```bash
+sphnctl deployment get --lid <lease-id>
+```
+Replace the `<lease-id>` with your actual Lease ID, you obtained after deployment.
+
+
+
+
+
+
+
+
 ---
 
 **Revolutionizing Digital Interactions, One Celebrity at a Time** 🌟
