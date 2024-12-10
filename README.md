@@ -231,6 +231,9 @@ This project couldn't be there if they didn't be there!
 - [Gemma](https://ollama.com/library/gemma)
 - [Mistral](https://ollama.com/library/mistral)
 
----
+
+## 🧾 License
+This project is licensed under the [MIT License](LICENSE).
+
 
 **Revolutionizing Digital Interactions, One Celebrity at a Time** 🌟
